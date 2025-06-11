@@ -1,0 +1,121 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM7iKscxIohTQCbjCs1IWOh",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Zanale10/DATASCIENCE-101-TEST/blob/main/Mental%20Health%20Care%20from%20data.gov\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5b9D2alL_bGi",
+        "outputId": "e4023396-8a39-4680-ef34-2aea9d33ce6f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "                                               Indicator     Group  \\\n",
+            "0           Received Counseling or Therapy, Last 4 Weeks    By Sex   \n",
+            "1           Received Counseling or Therapy, Last 4 Weeks    By Sex   \n",
+            "2      Needed Counseling or Therapy But Did Not Get I...    By Sex   \n",
+            "3      Took Prescription Medication for Mental Health...    By Age   \n",
+            "4      Took Prescription Medication for Mental Health...    By Age   \n",
+            "...                                                  ...       ...   \n",
+            "10399  Needed Counseling or Therapy But Did Not Get I...  By State   \n",
+            "10400  Needed Counseling or Therapy But Did Not Get I...  By State   \n",
+            "10401  Needed Counseling or Therapy But Did Not Get I...  By State   \n",
+            "10402  Needed Counseling or Therapy But Did Not Get I...  By State   \n",
+            "10403  Needed Counseling or Therapy But Did Not Get I...  By State   \n",
+            "\n",
+            "               State       Subgroup Phase  Time Period  \\\n",
+            "0      United States           Male     2           15   \n",
+            "1      United States         Female     2           15   \n",
+            "2      United States         Female    -1            1   \n",
+            "3      United States  50 - 59 years    -1            1   \n",
+            "4      United States  60 - 69 years    -1            1   \n",
+            "...              ...            ...   ...          ...   \n",
+            "10399       Virginia       Virginia   3.4           45   \n",
+            "10400     Washington     Washington   3.4           45   \n",
+            "10401  West Virginia  West Virginia   3.4           45   \n",
+            "10402      Wisconsin      Wisconsin   3.4           45   \n",
+            "10403        Wyoming        Wyoming   3.4           45   \n",
+            "\n",
+            "                Time Period Label Time Period Start Date Time Period End Date  \\\n",
+            "0           Sep 16 - Sep 28, 2020             09/16/2020           09/28/2020   \n",
+            "1           Sep 16 - Sep 28, 2020             09/16/2020           09/28/2020   \n",
+            "2      Dec 22, 2020 - Jan 5, 2021             12/22/2020           01/05/2021   \n",
+            "3           Mar 30 - Apr 13, 2021             03/30/2021           04/13/2021   \n",
+            "4           Mar 30 - Apr 13, 2021             03/30/2021           04/13/2021   \n",
+            "...                           ...                    ...                  ...   \n",
+            "10399        Apr 27 - May 9, 2022             04/27/2022           05/09/2022   \n",
+            "10400        Apr 27 - May 9, 2022             04/27/2022           05/09/2022   \n",
+            "10401        Apr 27 - May 9, 2022             04/27/2022           05/09/2022   \n",
+            "10402        Apr 27 - May 9, 2022             04/27/2022           05/09/2022   \n",
+            "10403        Apr 27 - May 9, 2022             04/27/2022           05/09/2022   \n",
+            "\n",
+            "       Value  LowCI  HighCI Confidence Interval Quartile Range  \\\n",
+            "0        6.9    6.5     7.3           6.5 - 7.3            NaN   \n",
+            "1       11.0   10.4    11.6         10.4 - 11.6            NaN   \n",
+            "2        NaN    NaN     NaN                 NaN            NaN   \n",
+            "3        NaN    NaN     NaN                 NaN            NaN   \n",
+            "4        NaN    NaN     NaN                 NaN            NaN   \n",
+            "...      ...    ...     ...                 ...            ...   \n",
+            "10399   10.1    7.1    13.8          7.1 - 13.8       9.6-11.3   \n",
+            "10400   14.8   12.5    17.4         12.5 - 17.4      13.0-20.8   \n",
+            "10401    9.8    6.6    13.8          6.6 - 13.8       9.6-11.3   \n",
+            "10402   11.6    8.5    15.3          8.5 - 15.3      11.4-12.9   \n",
+            "10403   11.5    8.6    15.1          8.6 - 15.1      11.4-12.9   \n",
+            "\n",
+            "       Suppression Flag  \n",
+            "0                   NaN  \n",
+            "1                   NaN  \n",
+            "2                   NaN  \n",
+            "3                   NaN  \n",
+            "4                   NaN  \n",
+            "...                 ...  \n",
+            "10399               NaN  \n",
+            "10400               NaN  \n",
+            "10401               NaN  \n",
+            "10402               NaN  \n",
+            "10403               NaN  \n",
+            "\n",
+            "[10404 rows x 15 columns]\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('/content/Mental_Health_Care_in_the_Last_4_Weeks.csv')\n",
+        "print(df)\n"
+      ]
+    }
+  ]
+}
